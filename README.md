@@ -28,21 +28,32 @@ Three main approaches to creating C++ Addons in Node.js:
 
 Using `node-addon-api`, a C++ wrapper around N-API, significantly reduces code complexity and maintains ABI stability provided by the C API.
 
-## Practical Example: Windows Process Manager in JavaScript
+## Code Example: Win32 Process Manager
 
-Steps to build a Node.js project using the `node-addon-api` to manage Windows processes, including process checks and termination methods.
+### Building the Addon
+Clone this repository and run the following command
 
-## Building and Using the Addon
+```bash
+npm install
+node-gyp configure
+node-gyp rebuild
+```
 
-Detailed instructions are provided for setting up `node-gyp`, writing `binding.gyp`, and implementing and building the C++ Addon to interact with system-level features using Node.js.
+### Using the Addon
+To test the addon, use the [kill-process.js ](https://github.com/sean-lab/nodejs-win32-process-manager/blob/main/src/kill-process.js) as follows:
 
-## Example Usage
+```bash
+node src/kill-process.js
+```
 
-The document includes JavaScript code examples that demonstrate how to interact with the built C++ Addon for managing processes, such as checking if a process is running and terminating it.
+Sample output woule be as follows:
 
-## Conclusion
-
-This guide serves as an introduction to extending Node.js capabilities using C++ Addons, focusing on practical implementation and real-world application scenarios.
+```bash
+>node src/kill-process.js 22620 0
+Process ID: 22620
+Process 22620 is Running
+Process 22620 is Not Running
+```
 
 ## References
 
